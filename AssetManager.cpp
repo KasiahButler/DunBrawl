@@ -3,18 +3,21 @@
 #include <iostream>
 #include "sfwdraw.h"
 
+//Connects loaded texture to a name
 static std::map<std::string, unsigned> textures;
 
+//Loads texture by name
 void loadTexture(const std::string &name, const char *path, unsigned r, unsigned c)
 {
 	textures[name] = sfw::loadTextureMap(path, r, c);
 }
 
+
 unsigned getTexture(const std::string &name)
 {
 	if (name == "")
 	{
-		std::cerr << "There's nothing her Jim" << std::endl;
+		std::cerr << "There's nothing here Jim" << std::endl;
 		return 0;
 	}
 	if (textures[name] == 0)
