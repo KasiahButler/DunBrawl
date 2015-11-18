@@ -16,7 +16,7 @@ public:
 	}
 
 	void Movement();
-	void Fire();
+	//void Fire();
 	void onCollision(GameObject &object, float distance);
 	void update();
 };
