@@ -6,12 +6,10 @@
 //Connects loaded texture to a name
 static std::map<std::string, unsigned> textures;
 
-//Loads texture by name
 void loadTexture(const std::string &name, const char *path, unsigned r, unsigned c)
 {
 	textures[name] = sfw::loadTextureMap(path, r, c);
 }
-
 
 unsigned getTexture(const std::string &name)
 {
@@ -28,8 +26,10 @@ unsigned getTexture(const std::string &name)
 	return textures[name];
 }
 
+//Map linking an animation map to a string
 static std::map<std::string, std::map<std::string, std::vector<unsigned>>> animations;
 
+//Map linking a set of animations and their Framerate to a string
 static std::map<std::string, std::map<std::string, float> > frameRates;
 
 unsigned getFrame(const std::string &tname, const std::string &aname, unsigned frame)
@@ -46,7 +46,6 @@ float getAnimationDuration(const std::string &tname, const std::string &aname)
 {
 	return getAnimationLength(tname, aname) / frameRates[tname][aname];
 }
-
 
 void addAnimation(const std::string &tname, const std::string &aname, const std::vector<unsigned> &frames, float frameRate)
 {

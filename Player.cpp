@@ -35,5 +35,5 @@ void Player::onCollision(GameObject &object, float distance)
 void Player::update()
 {
 	Movement();
-	Fire();
+	//Fire();
 }

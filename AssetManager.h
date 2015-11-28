@@ -2,36 +2,35 @@
 #include <string>
 #include <vector>
 
-
-//Loads in a texture and gives it an easy to use name
+//Loads a Texture gives it an easy to grab name
 void loadTexture(const std::string &name,
 				 const char *path, 
 				 unsigned r, 
 				 unsigned c);
 
-//Grabs a Texture brought in by LoadTexture
+//Gets the sprite from a SpriteSheet loaded in
 unsigned getTexture(const std::string &name);
 
-//Creates an animation from LoadTexture and gives it an easy to use name
+//Adds an animation to the Animation Map
 void addAnimation(const std::string &tname,
 				  const std::string &aname,
 				  const std::vector<unsigned> &frames,
 				  float frameRate = 12.f);
 
-//???
+//Grabs the frame from an Animation map
 unsigned getFrame(const std::string &tname,
 				  const std::string &aname,
 				  unsigned frame);
 
-//Gets the length of an animation
+//Gets the size of an Animation map
 unsigned getAnimationLength(const std::string &tname,
 							const std::string &aname);
 
-//???
+//Gets the duration of an Animation by dividing the AnimationLength by the FrameRate
 float getAnimationDuration(const std::string &tname,
 						   const std::string &aname);
 
-//???
+//I DON'T KNOWWWWWWWWWW
 unsigned sampleAnimation(const std::string &tname,
 						 const std::string &aname,
 						 float timePassed, float speed = 1.f, bool loop = true);
