@@ -5,19 +5,23 @@ void Player::Movement()
 {
 	if (sfw::getKey('W'))
 	{
-		x += speed * sfw::getDeltaTime();
+		y += speed * sfw::getDeltaTime();
+		lastKey = 'W';
 	}
 	if (sfw::getKey('S'))
 	{
-		x -= speed * sfw::getDeltaTime();
+		y -= speed * sfw::getDeltaTime();
+		lastKey = 'S';
 	}
 	if (sfw::getKey('D'))
 	{
-		y += speed * sfw::getDeltaTime();
+		x += speed * sfw::getDeltaTime();
+		lastKey = 'D';
 	}
 	if (sfw::getKey('A'))
 	{
-		y -= speed * sfw::getDeltaTime();
+		x -= speed * sfw::getDeltaTime();
+		lastKey = 'A';
 	}
 }
 
@@ -36,4 +40,25 @@ void Player::update()
 {
 	Movement();
 	//Fire();
+}
+
+void Player::draw()
+{
+	if (lastKey == 'S')
+	{
+		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 0);
+	}
+	else if (lastKey == 'A')
+	{
+		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 5);
+	}
+	else if (lastKey == 'D')
+	{
+		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 9);
+	}
+	else if (lastKey == 'W')
+	{
+		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 13);
+	}
+	else sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 0);
 }

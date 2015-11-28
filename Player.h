@@ -7,14 +7,16 @@ public:
 	float speed;
 	float rateOfFire;
 	int health;
+	char lastKey;
 
 	Player() : speed(100), rateOfFire(0.5f), health(5)
 	{
-		width = 80; height = 80; x = 400; y = 40;
+		width = 64; height = 64; x = 400; y = 400;
 		animName = "deerRun";
-		textureName = "deer";
+		textureName = "dKnight";
 	}
 
+	void draw();
 	void Movement();
 	//void Fire();
 	void onCollision(GameObject &object, float distance);

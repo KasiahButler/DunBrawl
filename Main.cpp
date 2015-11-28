@@ -8,10 +8,12 @@ int main()
 {
 	sfw::initContext(800, 800, "Basic");
 	loadTexture("Background", "./Textures/Dungeon.png", 1, 1);
+	loadTexture("dKnight", "./Textures/dKnight.png", 4, 4);
 	GameState game;
 	
 	while (sfw::stepContext())
 	{
+		game.update();
 		game.draw();
 	}
 	sfw::termContext();

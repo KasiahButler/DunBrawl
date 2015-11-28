@@ -13,13 +13,17 @@ public:
 		GameObject::gs() = this;
 	}
 
-	Player deer;
+	Player dKnight;
 	std::vector<Enemy> enemies;
 
-	//void update();
+	void update()
+	{
+		dKnight.Movement();
+	}
 	void draw()
 	{
 		sfw::drawTexture(getTexture("Background"), 400, 400, 800, 800, 0, true, 0);
+		dKnight.draw();
 	}
 
 	//void enemyDeath(Enemy &enemy);
