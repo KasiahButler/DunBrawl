@@ -48,7 +48,10 @@ public:
 	}
 
 	//Do something when collision happens
-	virtual void onCollsion(GameObject &object, float distance) {}
+	virtual void onCollision(GameObject &object, float distance) 
+	{
+	
+	}
 };
 
 //Checks for collision between two objects

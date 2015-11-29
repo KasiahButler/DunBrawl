@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="collisiontests.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
@@ -130,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="collisiontests.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Main.cpp" />

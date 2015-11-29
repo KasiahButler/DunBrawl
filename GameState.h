@@ -16,7 +16,7 @@ public:
 
 	Player dKnight;
 	std::vector<Spear> spear;
-	std::vector<Enemy> enemies;
+	Enemy slime;
 
 	void throwSpear(float px, float py, float vx, float vy, float life, int rotate)
 	{
@@ -33,6 +33,7 @@ public:
 	void update()
 	{
 		dKnight.update();
+		slime.update(dKnight);
 
 		for (int i = 0; i < spear.size(); ++i)
 		{
@@ -55,5 +56,7 @@ public:
 		}
 
 		dKnight.draw();
+		slime.draw();
+	
 	}
 };

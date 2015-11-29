@@ -11,13 +11,12 @@ public:
 	//Base enemy Constructor
 	Enemy() : speed(60), rateOfFire(2.0f), health(1)
 	{
-		width = 80, height = 80, x = 400, y = 560;
+		width = 80, height = 80, x = 400, y = 100;
 		animName = "blobSlide";
 		textureName = "blob";
 	}
 
-	//void movement();
 	//void onCollision(GameObject &object, float distance);
-	//void update();
-	//void draw();
+	void update(GameObject& player);
+	void draw();
 };

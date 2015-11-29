@@ -11,6 +11,7 @@ void Player::onCollision(GameObject &object, float distance)
 
 void Player::update()
 {
+	//Player Movement
 	if (sfw::getKey('W'))
 	{
 		y += speed * sfw::getDeltaTime();
@@ -31,6 +32,7 @@ void Player::update()
 		x -= speed * sfw::getDeltaTime();
 		currentFrame = 5;
 	}
+	//Throw Spear based on player currentFrame for direction purposes
 	if (sfw::getKey('F'))
 	{
 		if (currentFrame == 13)
@@ -57,5 +59,4 @@ void Player::draw()
 	/*animTimer +=  sfw::getDeltaTime();
 	currentFrame = sampleAnimation(textureName, animName, animTimer);*/
 	sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, currentFrame);
-	//Set base texture for standing sprite be it up/down/left/right (set bool to determine if animation is need if not then set standing sprite)
 }
