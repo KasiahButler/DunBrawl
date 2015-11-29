@@ -13,9 +13,10 @@ public:
 	{
 		width = 64; height = 64; x = 400; y = 400;
 		textureName = "dKnight";
+		animName = "walkDown";
 	}
 
-	void update();
-	void draw();
+	virtual void update();
+	virtual void draw();
 	void onCollision(GameObject &object, float distance);
 };

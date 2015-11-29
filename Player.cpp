@@ -1,5 +1,7 @@
 #include "Player.h"
+#include "GameState.h"
 #include "sfwdraw.h"
+#include <vector>
 
 void Player::onCollision(GameObject &object, float distance)
 {
@@ -12,31 +14,48 @@ void Player::update()
 	if (sfw::getKey('W'))
 	{
 		y += speed * sfw::getDeltaTime();
-		animName = "walkUp";
+		currentFrame = 13;
 	}
-	if (sfw::getKey('S'))
+	else if (sfw::getKey('S'))
 	{
 		y -= speed * sfw::getDeltaTime();
-		animName = "walkDown";
+		currentFrame = 1;
 	}
-	if (sfw::getKey('D'))
+	else if (sfw::getKey('D'))
 	{
 		x += speed * sfw::getDeltaTime();
-		animName = "walkRight";
+		currentFrame = 9;
 	}
-	if (sfw::getKey('A'))
+	else if (sfw::getKey('A'))
 	{
 		x -= speed * sfw::getDeltaTime();
-		animName = "walkRight";
+		currentFrame = 5;
 	}
-	if (sfw::getKey(KEY_ENTER))
+	if (sfw::getKey('F'))
 	{
-		//gs->throwJavelin(); Need to implement projectile function and set array of projectiles
+		if (currentFrame == 13)
+		{
+			gs()->throwSpear(x, y + 50, 0, 80, 30.f, 50);
+		}
+		else if (currentFrame == 1)
+		{
+			gs()->throwSpear(x, y - 50, 0, -80, 30.f, -130);
+		}
+		else if (currentFrame == 9)
+		{
+			gs()->throwSpear(x + 50, y, 80, 0, 30.f, -40);
+		}
+		else if (currentFrame = 5)
+		{
+			gs()->throwSpear(x - 50, y, -80, 0, 30.f, 140);
+		}
 	}
 }
 
 void Player::draw()
 {
-	//set the animation loop here based on if player is walking and what direction (movement in update will set animName to the correct animation so I don't need to manually do it each time)
+	/*animTimer +=  sfw::getDeltaTime();
+	currentFrame = sampleAnimation(textureName, animName, animTimer);*/
+	sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, currentFrame);
 	//Set base texture for standing sprite be it up/down/left/right (set bool to determine if animation is need if not then set standing sprite)
 }
