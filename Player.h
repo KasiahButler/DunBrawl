@@ -12,13 +12,10 @@ public:
 	Player() : speed(100), rateOfFire(0.5f), health(5)
 	{
 		width = 64; height = 64; x = 400; y = 400;
-		animName = "deerRun";
 		textureName = "dKnight";
 	}
 
-	void draw();
-	void Movement();
-	//void Fire();
-	void onCollision(GameObject &object, float distance);
 	void update();
+	void draw();
+	void onCollision(GameObject &object, float distance);
 };

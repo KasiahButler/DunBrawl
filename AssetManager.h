@@ -30,7 +30,7 @@ unsigned getAnimationLength(const std::string &tname,
 float getAnimationDuration(const std::string &tname,
 						   const std::string &aname);
 
-//I DON'T KNOWWWWWWWWWW
+//Gets the frame we are on for the animation based on the animTimer in GameObject
 unsigned sampleAnimation(const std::string &tname,
 						 const std::string &aname,
 						 float timePassed, float speed = 1.f, bool loop = true);

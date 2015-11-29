@@ -1,35 +1,6 @@
 #include "Player.h"
 #include "sfwdraw.h"
 
-void Player::Movement()
-{
-	if (sfw::getKey('W'))
-	{
-		y += speed * sfw::getDeltaTime();
-		lastKey = 'W';
-	}
-	if (sfw::getKey('S'))
-	{
-		y -= speed * sfw::getDeltaTime();
-		lastKey = 'S';
-	}
-	if (sfw::getKey('D'))
-	{
-		x += speed * sfw::getDeltaTime();
-		lastKey = 'D';
-	}
-	if (sfw::getKey('A'))
-	{
-		x -= speed * sfw::getDeltaTime();
-		lastKey = 'A';
-	}
-}
-
-//void Fire()
-//{
-//
-//}
-
 void Player::onCollision(GameObject &object, float distance)
 {
 	speed = 0;
@@ -38,27 +9,34 @@ void Player::onCollision(GameObject &object, float distance)
 
 void Player::update()
 {
-	Movement();
-	//Fire();
+	if (sfw::getKey('W'))
+	{
+		y += speed * sfw::getDeltaTime();
+		animName = "walkUp";
+	}
+	if (sfw::getKey('S'))
+	{
+		y -= speed * sfw::getDeltaTime();
+		animName = "walkDown";
+	}
+	if (sfw::getKey('D'))
+	{
+		x += speed * sfw::getDeltaTime();
+		animName = "walkRight";
+	}
+	if (sfw::getKey('A'))
+	{
+		x -= speed * sfw::getDeltaTime();
+		animName = "walkRight";
+	}
+	if (sfw::getKey(KEY_ENTER))
+	{
+		//gs->throwJavelin(); Need to implement projectile function and set array of projectiles
+	}
 }
 
 void Player::draw()
 {
-	if (lastKey == 'S')
-	{
-		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 0);
-	}
-	else if (lastKey == 'A')
-	{
-		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 5);
-	}
-	else if (lastKey == 'D')
-	{
-		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 9);
-	}
-	else if (lastKey == 'W')
-	{
-		sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 13);
-	}
-	else sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, 0);
+	//set the animation loop here based on if player is walking and what direction (movement in update will set animName to the correct animation so I don't need to manually do it each time)
+	//Set base texture for standing sprite be it up/down/left/right (set bool to determine if animation is need if not then set standing sprite)
 }

@@ -18,14 +18,11 @@ public:
 
 	void update()
 	{
-		dKnight.Movement();
+		dKnight.update();
 	}
 	void draw()
 	{
 		sfw::drawTexture(getTexture("Background"), 400, 400, 800, 800, 0, true, 0);
-		dKnight.draw();
+		dKnight.draw();a
 	}
-
-	//void enemyDeath(Enemy &enemy);
-	//void gameOver(Player &player);
 };
