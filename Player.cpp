@@ -3,9 +3,14 @@
 #include "sfwdraw.h"
 #include <vector>
 
+//Drop player health by one if hit by an enemy
 void Player::onCollision(GameObject &object, float distance)
 {
-	health -= 1;
+	if (invinFrames <= 0)
+	{
+		health -= 1;
+		invinFrames += 10.0f;
+	}
 }
 
 void Player::update()
@@ -73,6 +78,7 @@ void Player::update()
 	}
 }
 
+//Draw the player animations based on facing from Player Update
 void Player::draw()
 {
 	animTimer +=  sfw::getDeltaTime();

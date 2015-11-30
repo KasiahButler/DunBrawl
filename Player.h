@@ -7,6 +7,7 @@ public:
 	float speed;
 	float rateOfFire;
 	int health;
+	float invinFrames;
 	char lastKey;
 
 	Player() : speed(100), rateOfFire(0.5f), health(5)

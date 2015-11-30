@@ -25,7 +25,6 @@ void GameState::spawnSlime()
 		if (!slime[i].isActive)
 		{
 			slime[i] = Enemy();
-			std::cout << "A Slime has Spawned with " << slime[i].health << " Health" << std::endl;
 		}
 	}
 	slime.push_back(Enemy());
@@ -36,6 +35,12 @@ void GameState::update()
 {
 	//Update the Player's position and check for other things
 	dKnight.update();
+
+	//Check if player has invinFrames
+	if (dKnight.invinFrames >= 0)
+	{
+		dKnight.invinFrames -= 12 * sfw::getDeltaTime();
+	}
 
 	//spawnRate decrease so Slime's won't explode onto screen
 	spawnRate -= sfw::getDeltaTime();
@@ -77,9 +82,6 @@ void GameState::update()
 			}
 		}
 	}
-
-	//Check if the player is dead
-	if (dKnight.health <= 0) { std::cout << "you've died" << std::endl; }
 }
 
 //Draw all the things
