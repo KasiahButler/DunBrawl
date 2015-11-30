@@ -10,52 +10,72 @@ void Player::onCollision(GameObject &object, float distance)
 
 void Player::update()
 {
+	rateOfFire -= sfw::getDeltaTime();
+
 	//Player Movement
 	if (sfw::getKey('W'))
 	{
 		y += speed * sfw::getDeltaTime();
-		currentFrame = 13;
+		animName = "walkUp";
 	}
 	if (sfw::getKey('S'))
 	{
+
 		y -= speed * sfw::getDeltaTime();
-		currentFrame = 1;
+		animName = "walkDown";
 	}
 	if (sfw::getKey('D'))
 	{
 		x += speed * sfw::getDeltaTime();
-		currentFrame = 9;
+		animName = "walkRight";
 	}
 	if (sfw::getKey('A'))
 	{
 		x -= speed * sfw::getDeltaTime();
-		currentFrame = 5;
+		animName = "walkLeft";
 	}
+
 	//Throw Spear based on player currentFrame for direction purposes
 	if (sfw::getKey('F'))
 	{
-		if (currentFrame == 13)
+		if (animName == "walkUp")
 		{
-			gs()->throwSpear(x, y + 50, 0, speed * 1.25f, 30.f, 50);
+			if (rateOfFire <= 0)
+			{
+				gs()->throwSpear(x, y + 50, 0, speed * 1.25f, 30.f, 50);
+				rateOfFire = .5f;
+			}
 		}
-		else if (currentFrame == 1)
+		else if (animName == "walkDown")
 		{
-			gs()->throwSpear(x, y - 50, 0, speed * -1.25, 30.f, -130);
+			if (rateOfFire <= 0)
+			{
+				gs()->throwSpear(x, y - 50, 0, speed * -1.25, 30.f, -130);
+				rateOfFire = .5f;
+			}
 		}
-		else if (currentFrame == 9)
+		else if (animName == "walkRight")
 		{
-			gs()->throwSpear(x + 50, y, speed * 1.25, 0, 30.f, -40);
+			if (rateOfFire <= 0)
+			{
+				gs()->throwSpear(x + 50, y, speed * 1.25, 0, 30.f, -40);
+				rateOfFire = .5f;
+			}
 		}
-		else if (currentFrame = 5)
+		else if (animName == "walkLeft")
 		{
-			gs()->throwSpear(x - 50, y, speed * -1.25, 0, 30.f, 140);
+			if (rateOfFire <= 0)
+			{
+				gs()->throwSpear(x - 50, y, speed * -1.25, 0, 30.f, 140);
+				rateOfFire = .5f;
+			}
 		}
 	}
 }
 
 void Player::draw()
 {
-	/*animTimer +=  sfw::getDeltaTime();
-	currentFrame = sampleAnimation(textureName, animName, animTimer);*/
+	animTimer +=  sfw::getDeltaTime();
+	currentFrame = sampleAnimation(textureName, animName, animTimer);
 	sfw::drawTexture(getTexture(textureName), x, y, width, height, 0, true, currentFrame);
 }

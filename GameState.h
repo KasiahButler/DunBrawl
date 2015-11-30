@@ -8,6 +8,7 @@
 class GameState
 {
 public:
+	float spawnRate = 2.0f;
 	//Set Base Constructor to make the pointer in GameObject gs point to this Class
 	GameState()
 	{

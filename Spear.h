@@ -20,6 +20,7 @@ public:
 
 		duration = life;
 
+		textureName = "spear";
 		isActive = true;
 	}
 

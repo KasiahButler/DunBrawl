@@ -29,3 +29,12 @@ void Enemy::draw()
 {
 	sfw::drawTexture(getTexture(textureName), x, y, width, height, angle, true, 1);
 }
+
+void Enemy::onCollision(GameObject& object, float distance)
+{
+	if (object.textureName == "spear")
+	{
+		--health;
+		std::cout << health << std::endl;
+	}
+}

@@ -11,10 +11,10 @@ void Spear::update()
 
 void Spear::draw()
 {
-	sfw::drawTexture(getTexture("spear"), x, y, 48, 48, rotation, true, 1);
+	sfw::drawTexture(getTexture(textureName), x, y, 48, 48, rotation, true, 0);
 }
 
 void Spear::onCollision(GameObject& object, float distance)
 {
-
+	isActive = false;
 }

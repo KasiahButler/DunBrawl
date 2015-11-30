@@ -7,23 +7,40 @@
 
 int main()
 {
+	enum STATE {Splash, Main, Game, Exit};
+	{
+
+	};
 	/*FreeConsole();*/
 	sfw::initContext(800, 800, "Basic");
 	loadTexture("Background", "./Textures/Dungeon.png", 1, 1);
 	loadTexture("dKnight", "./Textures/dKnight.png", 4, 4);
 	loadTexture("spear", "./Textures/spear.PNG", 8, 8);
 	loadTexture("slime", "./Textures/Slime.png", 6, 4);
-	addAnimation("dKnight", "walkLeft", { 5, 6, 7, 8 });
-	addAnimation("dKnight", "walkRight", { 9, 10, 11, 12 });
-	addAnimation("dKnight", "walkUp", { 13, 14, 15, 16 });
-	addAnimation("dKnight", "walkDown", { 1, 2, 3, 4 });
+	addAnimation("dKnight", "walkLeft", { 4, 5, 6, 7 });
+	addAnimation("dKnight", "walkRight", { 8, 9, 10, 11 });
+	addAnimation("dKnight", "walkUp", { 12, 13, 14, 15 });
+	addAnimation("dKnight", "walkDown", { 0, 1, 2, 3 });
 
 	GameState game;
+	STATE state;
 	
 	while (sfw::stepContext())
 	{
-		game.update();
-		game.draw();
+		//switch (state = Game)
+		//{
+		//case Game :
+			game.update();
+			game.draw();
+		//	return Game;
+		//case Main :
+		//	return Exit;
+		//case Splash:
+		//	return Exit;
+		//case Exit:
+		//	break;
+		//}
+
 	}
 	sfw::termContext();
 	return 0;
