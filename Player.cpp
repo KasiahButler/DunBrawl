@@ -5,7 +5,6 @@
 
 void Player::onCollision(GameObject &object, float distance)
 {
-
 	health -= 1;
 }
 

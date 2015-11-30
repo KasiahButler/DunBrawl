@@ -8,7 +8,7 @@
 class GameState
 {
 public:
-	//Set Base Constructor to make the pointer in GameObject to gs point to this Class
+	//Set Base Constructor to make the pointer in GameObject gs point to this Class
 	GameState()
 	{
 		GameObject::gs() = this;
@@ -16,11 +16,11 @@ public:
 
 	Player dKnight;
 	std::vector<Spear> spear;
-	Enemy slime;
+	std::vector<Enemy> slime;
 
 	void throwSpear(float px, float py, float vx, float vy, float life, int rotate);
+	void spawnSlime();
 
 	void update();
-
 	void draw();
 };
