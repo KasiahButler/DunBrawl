@@ -7,7 +7,7 @@
 
 int main()
 {
-	FreeConsole();
+	/*FreeConsole();*/
 	sfw::initContext(800, 800, "Basic");
 	loadTexture("Background", "./Textures/Dungeon.png", 1, 1);
 	loadTexture("dKnight", "./Textures/dKnight.png", 4, 4);

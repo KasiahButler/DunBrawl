@@ -1,23 +1,31 @@
 #include "Enemy.h"
+#include "Player.h"
 #include "sfwdraw.h"
 #include "AssetManager.h"
+#include <iostream>
 #include <math.h>
 
-void Enemy::update(GameObject& player)
+void Enemy::update(Player& player)
 {
 	float dirX = player.x - x;
 	float dirY = player.y - y;
+	float turnSpeed = 90;
+	float movementSpeed = player.speed * .7f;
+	float check;
 
 	float goalAngle = atan2f(dirY, dirX);
 
-	if (angle < goalAngle) { angle -= sfw::getDeltaTime() * speed; }
-	else { angle += sfw::getDeltaTime() * speed; }
+	if (angle > goalAngle) { angle -= sfw::getDeltaTime() * turnSpeed; }
+	else { angle += sfw::getDeltaTime() * turnSpeed; }
 
-	x = cos(angle) * sfw::getDeltaTime() * speed;
-	y = sin(angle) * sfw::getDeltaTime() * speed;
+	velX = cos(angle) * sfw::getDeltaTime() * movementSpeed;
+	velY = sin(angle) * sfw::getDeltaTime() * movementSpeed;
+
+	x += velX;
+	y += velY;
 }
 
 void Enemy::draw()
 {
-	sfw::drawTexture(getTexture("slime"), x, y, width, height, angle, true, 1);
+	sfw::drawTexture(getTexture(textureName), x, y, width, height, angle, true, 1);
 }

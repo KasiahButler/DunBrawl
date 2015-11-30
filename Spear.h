@@ -7,6 +7,7 @@ private:
 	float velx, vely;
 	float duration;
 	int rotation;
+
 public:
 	Spear(float px, float py, float vx, float vy, float life, int rotate)
 	{
@@ -24,4 +25,5 @@ public:
 
 	void update();
 	void draw();
+	void onCollision(GameObject& object, float distance);
 };

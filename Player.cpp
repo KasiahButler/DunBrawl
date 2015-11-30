@@ -5,7 +5,7 @@
 
 void Player::onCollision(GameObject &object, float distance)
 {
-	speed = 0;
+
 	health -= 1;
 }
 
@@ -17,17 +17,17 @@ void Player::update()
 		y += speed * sfw::getDeltaTime();
 		currentFrame = 13;
 	}
-	else if (sfw::getKey('S'))
+	if (sfw::getKey('S'))
 	{
 		y -= speed * sfw::getDeltaTime();
 		currentFrame = 1;
 	}
-	else if (sfw::getKey('D'))
+	if (sfw::getKey('D'))
 	{
 		x += speed * sfw::getDeltaTime();
 		currentFrame = 9;
 	}
-	else if (sfw::getKey('A'))
+	if (sfw::getKey('A'))
 	{
 		x -= speed * sfw::getDeltaTime();
 		currentFrame = 5;
@@ -37,19 +37,19 @@ void Player::update()
 	{
 		if (currentFrame == 13)
 		{
-			gs()->throwSpear(x, y + 50, 0, 80, 30.f, 50);
+			gs()->throwSpear(x, y + 50, 0, speed * 1.25f, 30.f, 50);
 		}
 		else if (currentFrame == 1)
 		{
-			gs()->throwSpear(x, y - 50, 0, -80, 30.f, -130);
+			gs()->throwSpear(x, y - 50, 0, speed * -1.25, 30.f, -130);
 		}
 		else if (currentFrame == 9)
 		{
-			gs()->throwSpear(x + 50, y, 80, 0, 30.f, -40);
+			gs()->throwSpear(x + 50, y, speed * 1.25, 0, 30.f, -40);
 		}
 		else if (currentFrame = 5)
 		{
-			gs()->throwSpear(x - 50, y, -80, 0, 30.f, 140);
+			gs()->throwSpear(x - 50, y, speed * -1.25, 0, 30.f, 140);
 		}
 	}
 }

@@ -13,3 +13,8 @@ void Spear::draw()
 {
 	sfw::drawTexture(getTexture("spear"), x, y, 48, 48, rotation, true, 1);
 }
+
+void Spear::onCollision(GameObject& object, float distance)
+{
+
+}
