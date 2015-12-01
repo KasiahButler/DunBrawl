@@ -61,6 +61,7 @@ void GameState::update()
 			doCollision(slime[i], dKnight);
 			if (slime[i].health <= 0)
 			{
+				dKnight.pScore += 1;
 				slime[i].isActive = false;
 				if (!slime[i].isActive)
 				{
@@ -81,6 +82,14 @@ void GameState::update()
 				doCollision(spear[i], slime[j]);
 			}
 		}
+	}
+	if (dKnight.pScore >= 10)
+	{
+		std::cout << "You Win" << std::endl; //Replace this with win game function
+	}
+	if (dKnight.health <= 0)
+	{
+		std::cout << "You've died" << std::endl; //Replace with death function
 	}
 }
 

@@ -1,20 +1,23 @@
 #include "Player.h"
 #include "GameState.h"
 #include "sfwdraw.h"
+#include <iostream>
 #include <vector>
 
-//Drop player health by one if hit by an enemy
+//Drop player health by one if hit by an enemy while not under IFrames
 void Player::onCollision(GameObject &object, float distance)
 {
 	if (invinFrames <= 0)
 	{
 		health -= 1;
 		invinFrames += 10.0f;
+		std::cout << health << std::endl;
 	}
 }
 
 void Player::update()
 {
+	//Handle ROF as Player Updates
 	rateOfFire -= sfw::getDeltaTime();
 
 	//Player Movement
@@ -47,7 +50,7 @@ void Player::update()
 		{
 			if (rateOfFire <= 0)
 			{
-				gs()->throwSpear(x, y + 50, 0, speed * 1.25f, 30.f, 50);
+				gs()->throwSpear(x, y + 50, 0, speed * 1.4f, 20.f, 50);
 				rateOfFire = .5f;
 			}
 		}
@@ -55,7 +58,7 @@ void Player::update()
 		{
 			if (rateOfFire <= 0)
 			{
-				gs()->throwSpear(x, y - 50, 0, speed * -1.25, 30.f, -130);
+				gs()->throwSpear(x, y - 50, 0, speed * -1.4f, 20.f, -130);
 				rateOfFire = .5f;
 			}
 		}
@@ -63,7 +66,7 @@ void Player::update()
 		{
 			if (rateOfFire <= 0)
 			{
-				gs()->throwSpear(x + 50, y, speed * 1.25, 0, 30.f, -40);
+				gs()->throwSpear(x + 50, y, speed * 1.4f, 0, 20.f, -40);
 				rateOfFire = .5f;
 			}
 		}
@@ -71,7 +74,7 @@ void Player::update()
 		{
 			if (rateOfFire <= 0)
 			{
-				gs()->throwSpear(x - 50, y, speed * -1.25, 0, 30.f, 140);
+				gs()->throwSpear(x - 50, y, speed * -1.4f, 0, 20.f, 140);
 				rateOfFire = .5f;
 			}
 		}

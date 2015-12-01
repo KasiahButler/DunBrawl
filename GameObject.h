@@ -50,7 +50,7 @@ public:
 	//Do something when collision happens
 	virtual void onCollision(GameObject &object, float distance) 
 	{
-	
+		//Don't know if I actually need this
 	}
 };
 

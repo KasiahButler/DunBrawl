@@ -5,6 +5,7 @@
 class Enemy : public GameObject
 {
 public:
+	//Enemy Stats
 	float velX, velY;
 	float spawnRate;
 	int health;
@@ -18,6 +19,7 @@ public:
 		textureName = "slime";
 	}
 
+	//Enemy Functions
 	void onCollision(GameObject &object, float distance);
 	void update(Player& player);
 	void draw();

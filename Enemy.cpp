@@ -34,7 +34,6 @@ void Enemy::onCollision(GameObject& object, float distance)
 {
 	if (object.textureName == "spear")
 	{
-		--health;
-		std::cout << health << std::endl;
+		health = 0;
 	}
 }

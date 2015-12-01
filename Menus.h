@@ -1,8 +1,6 @@
 #pragma once
 
-class Menus
-{
-public:
-	void splashScreen();
-	void mainMenu();
-};
+enum STATE { Splash, Main, Game, Exit };
+
+STATE mainMenu();
+STATE splashScreen();
