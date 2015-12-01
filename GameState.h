@@ -3,8 +3,9 @@
 #include "Player.h"
 #include "Spear.h"
 #include "Enemy.h"
-#include "Menus.h"
 #include <vector>
+
+enum STATE { Splash, Main, Game, Win, Lose };
 
 class GameState
 {
@@ -27,6 +28,10 @@ public:
 	void spawnSlime();
 
 	//Main Game Functionality
+	STATE splashScreen();
+	STATE mainMenu();
 	void update();
-	void draw();
+	STATE draw();
+	STATE win();
+	STATE lose();
 };

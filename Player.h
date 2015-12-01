@@ -10,6 +10,7 @@ public:
 	int health;
 	float invinFrames;
 	int pScore;
+	char score = '0';
 
 	//Base Player Constructor sets "Stats" to reasonable Defaults
 	Player() : speed(150), rateOfFire(0.5f), health(5)
