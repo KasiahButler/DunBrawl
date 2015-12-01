@@ -11,12 +11,23 @@ public:
 	int health;
 
 	//Base enemy Constructor
-	Enemy() : velX(60), velY(60), spawnRate(2.0f), health(1)
+	Enemy(int spawnPoint) : velX(60), velY(60), spawnRate(2.0f), health(1)
 	{
-		width = 80, height = 80, x = 400, y = 100;
-		isActive = true;
-		animName = "slimWiggle";
-		textureName = "slime";
+		switch (spawnPoint)
+		{
+		case 1:
+			x = 400, y = 100;
+		case 2:
+			x = 400, y = 700;
+		case 3:
+			x = 100, y = 400;
+		case 4:
+			x = 700, y = 400;
+		}
+			width = 80, height = 80;
+			isActive = true;
+			animName = "slimWiggle";
+			textureName = "slime";
 	}
 
 	//Enemy Functions

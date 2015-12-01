@@ -3,7 +3,9 @@
 #include "Player.h"
 #include "Spear.h"
 #include "Enemy.h"
+#include <time.h>
 #include <vector>
+#include <stdlib.h>
 
 enum STATE { Splash, Main, Game, Win, Lose };
 

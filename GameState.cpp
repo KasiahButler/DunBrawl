@@ -1,6 +1,7 @@
 #include "GameState.h"
 #include "Spear.h"
 #include "Enemy.h"
+#include <stdlib.h>
 #include <vector>
 #include <iostream>
 
@@ -24,10 +25,10 @@ void GameState::spawnSlime()
 	{
 		if (!slime[i].isActive)
 		{
-			slime[i] = Enemy();
+			slime[i] = Enemy(rand() % 4);
 		}
 	}
-	slime.push_back(Enemy());
+	slime.push_back(Enemy(rand() % 4));
 }
 
 STATE GameState::splashScreen()

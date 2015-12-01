@@ -7,6 +7,9 @@
 
 int main()
 {
+	//Remove Console Window
+	FreeConsole();
+
 	//Render Game Window
 	sfw::initContext(800, 800, "Basic");
 

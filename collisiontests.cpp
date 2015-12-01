@@ -51,7 +51,7 @@ float itest_CircleAABB(float x1, float y1, float r1,
 //Checks for Collision and then runs onCollision Functions for both Objects
 float doCollision(GameObject &go1, GameObject &go2)
 {
-	float distance = itest_AABB(go1.x, go1.y, go1.width / 8, go1.height / 8, go2.x, go2.y, go2.width / 8, go2.height / 8);
+	float distance = itest_AABB(go1.x, go1.y, go1.width / 4, go1.height / 4, go2.x, go2.y, go2.width / 4, go2.height / 4);
 	if (distance > 0)
 	{
 		go1.onCollision(go1, distance);
