@@ -80,7 +80,8 @@ void GameState::update()
 			doCollision(slime[i], dKnight);
 			if (slime[i].health <= 0)
 			{
-				++dKnight.score;
+				std::cout << dKnight.pScore<< std::endl;
+				++dKnight.pScore;
 				slime[i].isActive = false;
 				if (!slime[i].isActive)
 				{
